@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 4 Years Anniversary! ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 25%, #f67280 50%, #355c7d 75%, #6c5b7b 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 20px;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 
+                        inset 0 0 40px rgba(255, 255, 255, 0.1);
+            max-width: 650px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.8),
+                         0 0 40px rgba(255, 107, 157, 0.4);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: #fff;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+        }
+
+        .hearts {
+            font-size: 3.5em;
+            margin: 20px 0;
+            animation: pulse 1.5s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+        }
+
+        .question {
+            font-size: 1.3em;
+            color: #fff;
+            margin: 25px 0 15px;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-style: italic;
+        }
+
+        .main-question {
+            font-size: 1.5em;
+            color: #fff;
+            margin: 15px 0 30px;
+            font-weight: 600;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .buttons-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+        }
+
+        #noBtn {
+            background: linear-gradient(135deg, #ff7675, #d63031);
+            color: white;
+            transition: all 0.15s ease;
+        }
+
+        #noBtn.moving {
+            position: fixed;
+            z-index: 1000;
+        }
+
+        .thank-you {
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .thank-you.show {
+            display: block;
+        }
+
+        .thank-you h2 {
+            color: #fff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 182, 193, 0.8),
+                         0 0 40px rgba(255, 182, 193, 0.5);
+        }
+
+        .thank-you p {
+            color: #fff;
+            font-size: 1.6em;
+            line-height: 1.6;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            margin: 15px 0;
+        }
+
+        .celebration {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+
+        .time-note {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-top: 25px;
+        }
+
+        .emoji-note {
+            font-size: 1.8em;
+            margin-top: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .subtitle {
+                font-size: 1.1em;
+            }
+            .question, .main-question {
+                font-size: 1.1em;
+            }
+            button {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+            .thank-you h2 {
+                font-size: 1.8em;
+            }
+            .thank-you p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts"></div>
+    
+    <div class="container">
+        <div id="questionSection">
+            <h1>Happy 4 Years of<br>Love and Drama 🥰</h1>
+            <p class="subtitle">Happy Anniversary Baby</p>
+            <div class="hearts">❤️💕💖</div>
+            <p class="question">Like I always bore you with my typical...</p>
+            <p class="main-question">Will you stay with me forever?</p>
+            <div class="buttons-container">
+                <button id="yesBtn">Yes! 💖</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+
+        <div id="thankYouSection" class="thank-you">
+            <div class="celebration">🎉✨🎊</div>
+            <h2>Thank You So Much!</h2>
+            <div class="hearts">❤️💕💝</div>
+            <p>Now I am ready for</p>
+            <p class="time-note">Dinner at 6:45</p>
+            <p class="emoji-note">and 👙 later 😈</p>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const questionSection = document.getElementById('questionSection');
+        const thankYouSection = document.getElementById('thankYouSection');
+
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.querySelector('.floating-hearts');
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize floating hearts
+        createFloatingHearts();
+
+        // Handle Yes button click
+        yesBtn.addEventListener('click', () => {
+            questionSection.style.display = 'none';
+            thankYouSection.classList.add('show');
+        });
+
+        // Make No button run away on mouse enter (hover)
+        noBtn.addEventListener('mouseenter', () => {
+            moveNoButton();
+        });
+
+        // Also move on touch for mobile devices
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveNoButton();
+        });
+
+        function moveNoButton() {
+            // Add the moving class to make it fixed positioned
+            noBtn.classList.add('moving');
+            
+            // Get viewport dimensions
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            
+            // Get button dimensions
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+            
+            // Calculate available space (with some padding from edges)
+            const padding = 20;
+            const maxX = viewportWidth - btnWidth - padding;
+            const maxY = viewportHeight - btnHeight - padding;
+            
+            // Generate random position anywhere on screen
+            let newX = Math.random() * maxX + padding;
+            let newY = Math.random() * maxY + padding;
+            
+            // Apply the new position using fixed positioning
+            noBtn.style.left = newX + 'px';
+            noBtn.style.top = newY + 'px';
+        }
+    </script>
+</body>
+</html>
